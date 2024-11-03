@@ -1,0 +1,48 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{pgfgantt}
+\usepackage{csquotes}
+\usepackage[style=numeric-comp,
+    minbibnames=6, sorting=none, url=false, hyperref=true, babel=hyphen, issn=false]{biblatex}
+\addbibresource{sample.bib} 
+% Impostazioni per i margini
+\geometry{top=2cm, bottom=2cm, left=1.5cm, right=1.5cm}
+
+% Usa interlinea singola per tutto il documento
+\setstretch{1.08}
+
+\usepackage{enumitem}
+\usepackage{etoolbox}
+% Riduci la spaziatura tra le voci della bibliografia
+\setlength\bibitemsep{0.00000000000000000000001em}
+
+% Riduci la dimensione del testo della bibliografia
+\AtBeginBibliography{\footnotesize}
+
+\usepackage{titlesec}
+
+\titlespacing*{\section}
+  {0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+% Impostazioni per i titoli delle sezioni
+\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{0.001em}{}
+
+
+% Inizio del documento
+\begin{document}
+
+% Conclusione
+\section*{Conclusion}
+This doctoral project aims to integrate multi-omic and non-omic data using ML techniques to stratify breast cancer patients and develop personalized treatment strategies. By leveraging these diverse data sources, the goal is to enhance diagnostic precision and optimize therapeutic outcomes, ultimately improving patient care.
+In addition, the project will provide new knowledge on how ionizing radiation impacts tumor immunogenicity.
+\footnotesize
+\printbibliography[
+    heading=bibintoc, % Aggiunge la bibliografia al sommario
+    title={References} % Titolo della sezione della bibliografia
+]
+
+
+\end{document}
