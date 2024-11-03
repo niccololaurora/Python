@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}How to write code text in LateX}{4}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Plotly}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Boxplots}{6}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Statistical methods}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Linear regression}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Logistic Regression}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Classification}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Principal Component analysis}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Statistical test}{7}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}ANOVA}{7}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2} chi double}{7}{subsection.3.5.2}%

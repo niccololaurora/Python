@@ -1,0 +1,24 @@
+
+
+\chapter{Plotly}
+\label{sec: plotly}
+
+\section{Boxplots}
+Boxplots
+
+
+\begin{lstlisting}[language=Python, caption=Python example]
+import plotly.express as px
+import plotly.graph_objects as go
+
+df = pd.read_excel(input)
+fig_asd = px.box(df, y=['ASD [mm]'], points="all")
+fig.add_trace(go.Box(fig_asd['data'][0], marker_color='darkblue', boxmean=True))
+fig.update_layout(title='',showlegend=False, boxgap=0.1, boxgroupgap=0.5, font=dict(size=25))
+fig.write_html(os.path.join(output_path_folder, 'bb_metric.html'))
+# to run this Kaleido need to be installed in a environment path without any accent
+fig.write_image(os.path.join(output_path_folder, 'bb_metric.png')) 
+
+fig.show()
+
+\end{lstlisting}

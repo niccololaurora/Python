@@ -1,48 +1,232 @@
-\documentclass[a4paper, 12pt]{article}
+%\documentclass{report} % o article, book, memoir, etc.
+%\usepackage[a4paper, left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+\documentclass[12pt]{report}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{lmodern} % Font simile a quello della classe book
+\usepackage{setspace} % Per impostare l'interlinea
+%\onehalfspacing 
+%\documentclass[12pt,a4paper,twoside,titlepage]{book}
+
+%\usepackage[a4paper,width=130mm,top=30mm,bottom=30mm]{geometry} 
+
+%%%%%%%%%%%%\usepackage{fancyhdr}
+
+% Imposta un'altezza della testa adeguata
+%%%%%%%%%%%%\setlength{\headheight}{14.5pt} % Puoi regolare il valore di 14.5pt secondo il suggerimento
+
+% Eventualmente, puoi regolare il margine superiore per compensare
+% \addtolength{\topmargin}{-2.5pt} % Puoi regolare il valore di -2.5pt secondo il suggerimento
+
+% Pulisci tutti i campi di testa e di piede
+%%%%%%%%\fancyhf{}
+
+% Definisci un nuovo stile di intestazione
+%%%%%%%%\fancypagestyle{mystyle}{%
+%%%%%%%%%%%    \fancyhead[LE,RO]{\thepage} % Numero di pagina in alto a destra nelle pagine dispari e a sinistra nelle pagine pari
+ %%%%%%%%%%%   \fancyhead[LO,RE]{\leftmark} % Titolo del capitolo a sinistra nelle pagine dispari e a destra nelle pagine pari
+%%%%%%%%%%%5}
+
+% Rimuovi il "Chapter" dal titolo del capitolo nell'intestazione
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% Applica lo stile personalizzato alle pagine desiderate
+%%%%%%%%%%\pagestyle{mystyle}
+% Definisci un nuovo tipo di colonna con larghezza fissa e contenuto centrato
+
+
 \usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{titlesec}
-\usepackage{pgfgantt}
-\usepackage{csquotes}
-\usepackage[style=numeric-comp,
-    minbibnames=6, sorting=none, url=false, hyperref=true, babel=hyphen, issn=false]{biblatex}
-\addbibresource{sample.bib} 
-% Impostazioni per i margini
-\geometry{top=2cm, bottom=2cm, left=1.5cm, right=1.5cm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}          % Utilizza font scalabili Latin Modern
+\usepackage{microtype}
+ % Per migliorare la qualità della tipografia
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{array} % Pacchetto per personalizzare le colonne nelle tabelle
 
-% Usa interlinea singola per tutto il documento
-\setstretch{1.08}
+\usepackage[rgb,dvipsnames]{xcolor}
+\usepackage[small]{caption}
+\usepackage{listings}
 
-\usepackage{enumitem}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{hologo}
+\usepackage{shellesc}
+\usepackage{epigraph}
 \usepackage{etoolbox}
-% Riduci la spaziatura tra le voci della bibliografia
-\setlength\bibitemsep{0.00000000000000000000001em}
+\usepackage{wrapfig}
 
-% Riduci la dimensione del testo della bibliografia
-\AtBeginBibliography{\footnotesize}
+\setlength\epigraphrule{0pt}
+\setlength\parindent{0pt}
+\setlength{\epigraphwidth}{0.5\textwidth}
 
-\usepackage{titlesec}
+\usepackage{colortbl}
 
-\titlespacing*{\section}
-  {0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+%\usepackage[toc,page]{appendix}
+\usepackage{enumitem}
 
-% Impostazioni per i titoli delle sezioni
-\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{0.001em}{}
+\usepackage{subcaption}
+
+% Math and physic packages
+\usepackage{siunitx}
+\usepackage{physics}
+% Sovrascrivi la definizione di \qty per utilizzare \SI di siunitx
+%\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{dsfont}
+\usepackage{amsthm,amsmath,amssymb,amsfonts,bbm}
+\usepackage{mathrsfs}
+\usepackage{tensor}
+\usepackage{mathtools}
+\usepackage{url}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=true, % colore dei link interni
+    urlcolor=true   % colore degli URL
+}
+
+%\usepackage[a-1b]{pdfx}   % for PDF/A-1b
 
 
-% Inizio del documento
+\definecolor{true}{RGB}{0,0,0}
+
+\newcommand{\epsv}{\varepsilon_{0}}
+\newcommand{\todo}[1]{\textcolor{blue}{\textbf{TODO:} #1}}
+\newcommand{\gp}[1]{\textcolor{cyan}{\textbf{GP:} #1}}
+\newcommand{\mgug}[1]{\textcolor{red}{\textbf{MGUG:} #1}}%
+\newcommand{\cf}[1]{\textcolor{brown}{\textbf{CF:} #1}}%
+\renewcommand\labelitemi{\tiny$\bullet$}
+%%%%%%%%%%%%TITLE
+\usepackage[calcwidth,pagestyles]{titlesec}% loads titleps
+\usepackage{adjustbox,xcolor}
+% chapter head style via titlesec
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{\color{black!65!black}\filleft%
+\minsizebox{!}{24pt}{\chaptertitlename}% needs package adjustbox
+\lapbox[2em]{1.5em}{% Modifica la spaziatura a sinistra del "Chapter"
+%\lapbox[0pt]{0.8em}{% Modifica la spaziatura a sinistra del "Chapter"
+%\lapbox[0pt]{\width}{%
+\minsizebox{!}{40pt}{%
+\ %%%quadrante
+\colorbox{white!50!white}{\color{black}\thechapter}% needs xcolor
+}%
+}% needs package adjustbox
+}
+{4ex}
+{{\color{black!65!black}\titlerule}
+\huge\bfseries\scshape
+\vspace{2ex}%
+\filright}
+[\vspace{2ex}%
+{\color{black!65!black}\titlerule}]
+
+
+
+% Definisci uno stile per l'intestazione personalizzato
+\newpagestyle{mystyle}{
+    % Pulisci tutti i campi di testa e di piede
+    \sethead{}{}{}
+    
+    % Linea sopra il numero di pagina e il nome del capitolo
+    \setheadrule{0.4pt}
+    
+    % Numero di pagina in alto a destra nelle pagine dispari e a sinistra nelle pagine pari
+    \sethead[\thepage][][\chaptertitle]{\chaptertitle}{}{\thepage}
+}
+
+% Applica lo stile personalizzato alle pagine desiderate
+\pagestyle{mystyle}
+\usepackage[backend=biber,style=numeric,citestyle=numeric]{biblatex}
+
+%\usepackage[style=numeric]{biblatex} % Specifica lo stile bibliografico
+\addbibresource{sample.bib} 
+
+%Imports bibliography file
+% Documents
+\usepackage[swapnames]{frontespizio}
+
+
 \begin{document}
+\begin{titlepage}
 
-% Conclusione
-\section*{Conclusion}
-This doctoral project aims to integrate multi-omic and non-omic data using ML techniques to stratify breast cancer patients and develop personalized treatment strategies. By leveraging these diverse data sources, the goal is to enhance diagnostic precision and optimize therapeutic outcomes, ultimately improving patient care.
-In addition, the project will provide new knowledge on how ionizing radiation impacts tumor immunogenicity.
-\footnotesize
+    \begin{center}
+    {\LARGE Lecture Notes
+    }
+    \end{center}
+    
+    \begin{center}
+    \vspace{1cm}
+    {\huge\textbf{Title to decide. Technical notes for Physics} \par}
+    \end{center}
+    \par
+      \vspace{2 cm}
+    
+            
+
+\end{titlepage}
+\null\thispagestyle{empty}\newpage % Pagina bianca dopo il frontespizio
+
+\thispagestyle{empty}
+\null\vspace{\stretch{1}}
+\begin{flushright}
+\textit{Dedica}
+\end{flushright}
+\vspace{\stretch{2}}\null
+\null\thispagestyle{empty}\newpage % Pagina bianca dopo il frontespizio
+
+\setcounter{tocdepth}{4}
+\shipout\hbox{} %%%%%%new command
+
+\tableofcontents
+
+
+\clearpage 
+
+\input{Introduction.tex}
+
+\input{Chapter1.tex}
+
+\input{Chapter2.tex}
+
+
 \printbibliography[
-    heading=bibintoc, % Aggiunge la bibliografia al sommario
-    title={References} % Titolo della sezione della bibliografia
+heading=bibintoc,
+title={References}
 ]
 
+%Filters bibliography
+%\printbibliography[type=article,title={Articles}]
+%\printbibliography[type=book,title={Books}]
+%\printbibliography[keyword={latex},title={Thesis}]
+
+% Pagina bianca dopo il capitolo 2
+\clearpage % Nuova pagina
 
 \end{document}
